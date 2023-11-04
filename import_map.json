@@ -1,5 +1,7 @@
 {
   "imports": {
+    "deco-sites/kali-eccomerce/": "./",
+
     "deco-sites/black-friday-lp/": "./",
 
     "$store/": "./",
