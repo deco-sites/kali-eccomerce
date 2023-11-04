@@ -1,0 +1,37 @@
+{
+  "tasks": {
+    "start": "deno task bundle && deno run -A --unstable --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",
+    "gen": "deno run -A dev.ts --gen-only",
+    "play": "USE_LOCAL_STORAGE_ONLY=true deno task start",
+    "component": "deno eval 'import \"deco/scripts/component.ts\"'",
+    "release": "deno eval 'import \"deco/scripts/release.ts\"'",
+    "update": "deno eval 'import \"deco/scripts/update.ts\"'",
+    "check": "deno fmt && deno lint && deno check dev.ts main.ts",
+    "install": "deno eval 'import \"deco/scripts/apps/install.ts\"'",
+    "uninstall": "deno eval 'import \"deco/scripts/apps/uninstall.ts\"'",
+    "bundle": "deno eval 'import \"deco/scripts/apps/bundle.ts\"' deco-sites/black-friday-lp",
+    "cache_clean": "rm deno.lock; deno cache -r main.ts"
+  },
+  "githooks": {
+    "pre-commit": "check"
+  },
+  "exclude": [
+    "node_modules",
+    "static/",
+    "README.md"
+  ],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "nodeModulesDir": true,
+  "importMap": "./import_map.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
